@@ -89,20 +89,38 @@ Layer	Purpose:
 
 The Bronze layer stores the raw datasets exactly as they were received.
 
+The CSV files were imported using the SQL Server Flat File Import Wizard.
+
 Tables created:
 -  bronze.beautyspot_sales_sls
 -  bronze.beautyspot_prd_details_inv
 
 No transformations were performed at this stage.
-This layer acts as the source of truth for the raw data.
+The goal was simply to preserve the original data for reference and traceability.
+
+### Silver Layer: Data Cleaning and Structuring
+
+The silver layer is were the data was cleaned and standardized
+
+Before moving data from bronze into the Silver layer, the tables structure were created and several quality checks were performed.
+
+#### Creating The Silver Tables 
+Two tables were created in this layer:
+
+-  silver.beautyspot_sales_sls
+-  silver.beautyspot_prd_details_inv
+
+click to view the script.
+
 
 #### Data Quality Checks
-
-Before moving data into the Silver layer, several quality checks were performed.
-
-These checks included:
+The following data quality checks were performed:
 
 -  Checking for duplicate part numbers
 -  Identifying null values in text, numeric, and date columns
 -  Removing unwanted spaces in string fields
 -  Verifying consistent formatting
+
+click to view the script.
+
+
