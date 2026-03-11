@@ -61,12 +61,48 @@ Each monthly report was imported and transformed using the same process.
 **Transformations performed**:
 
 -  Removed unnecessary columns such as discount and percentage fields
--  Split the Product Description column into:
-  -  part_no
-  -  product_name
+-  Split the Product Description column into: part_no and product_name
 -  Added a sales_date column to identify the reporting month
 -  Verified data types for all columns
 
 Once the transformations were complete, the five datasets were appended into a single dataset.
 
 The final dataset was exported as a CSV file and loaded into SQL Server.
+
+## Data Warehouse Design
+
+A layered data warehouse structure was implemented using Medallion Architecture.
+
+The database created for the project: beauty_spot_DW
+
+Schemas used: bronze, silver and gold
+
+Each layer serves a different purpose.
+
+Layer	Purpose:
+
+-  Bronze	Store raw data
+-  Silver	Clean and standardize data
+-  Gold	Create analytical views for reporting
+
+### Bronze Layer
+
+The Bronze layer stores the raw datasets exactly as they were received.
+
+Tables created:
+-  bronze.beautyspot_sales_sls
+-  bronze.beautyspot_prd_details_inv
+
+No transformations were performed at this stage.
+This layer acts as the source of truth for the raw data.
+
+#### Data Quality Checks
+
+Before moving data into the Silver layer, several quality checks were performed.
+
+These checks included:
+
+-  Checking for duplicate part numbers
+-  Identifying null values in text, numeric, and date columns
+-  Removing unwanted spaces in string fields
+-  Verifying consistent formatting
