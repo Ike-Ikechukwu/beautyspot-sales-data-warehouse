@@ -178,5 +178,27 @@ click to view script
 
 ## Analysis
 
+### Category Performance Analysis
+Using the gold.beautyspot_sales_sls view, a category-level analysis was performed to evaluate the contribution of each product category.
+The analysis calculated:
+Number of products per category
+Total quantity sold
+Total cost
+Total revenue
+Total profit
+Revenue contribution percentage
+This analysis helps identify which product categories generate the most revenue and profit for the business.
+
+click to view script
+
+### Budget Allocation Model
+A simple budget allocation model was developed based on category revenue contribution.
+The idea was to distribute a marketing or purchasing budget across product categories according to their revenue performance.
+Example formula:
+Revenue Allocation = New Budget × Revenue Contribution
+This approach ensures that higher-performing categories receive a proportionally larger share of the budget.
+
+click to view script.
+
 
 
