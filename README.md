@@ -77,9 +77,9 @@ The database created for the project: beauty_spot_DW
 
 Schemas used: bronze, silver and gold
 
-Each layer serves a different purpose.
+click to view script
 
-Layer	Purpose:
+Each layer serves a different purpose:
 
 -  Bronze	Store raw data
 -  Silver	Clean and standardize data
@@ -102,9 +102,7 @@ The goal was simply to preserve the original data for reference and traceability
 
 The silver layer is were the data was cleaned and standardized
 
-Before moving data from bronze into the Silver layer, the tables structure were created and several quality checks were performed.
-
-#### Creating The Silver Tables 
+**Creating The Silver Tables** 
 Two tables were created in this layer:
 
 -  silver.beautyspot_sales_sls
@@ -112,8 +110,8 @@ Two tables were created in this layer:
 
 click to view the script.
 
-
-#### Data Quality Checks
+Before moving data from bronze into the Silver layer, the tables structure were created and several quality checks were performed.
+**Data Quality Checks**
 The following data quality checks were performed:
 
 -  Checking for duplicate part numbers
@@ -122,5 +120,63 @@ The following data quality checks were performed:
 -  Verifying consistent formatting
 
 click to view the script.
+
+**Data Discrepancy Investigation**
+
+During validation, 15 part numbers from the sales dataset did not match records in the inventory dataset.
+
+After raising the issue with the inventory officer, it was confirmed that:
+
+Some products had previously shared the same part number and the part numbers had been manually updated internally
+
+The inventory officer provided complete product names for those records so they could still be categorized correctly
+
+click to view script
+
+**Data Insertion**
+-  The inventory data was cleaned and inserted into the table "silver.beautyspot_prd_details_inv
+-  The sales data was also cleaned and structured before being loaded into the table "silver.beautyspot_sales_sls.
+To enrich the sales data with  product information a LEFT JOIN was performed using the part number.
+For matched records product information from the product table were used while For unmatched records, the product names provided by the inventory officer were manually included.
+click to view scripts
+
+### Gold layer
+The Gold Layer contains business ready viiews designed for analysis and reporting. This views apply business logic and prepare the data for use in SQL analysis and Power BI dashboards.
+
+### Sales Analysis View & Product Categorization
+To support business analysis and reporting, a primary analytical view was created in the Gold layer known as "gold.beautyspot_sales_sls"
+
+This view serves as the main reporting dataset and contains all fields required for analysis. It pulls the cleaned sales data from the Silver layer and introduces a product category column used for performance analysis.
+
+Product categorization was implemented directly within this view.
+The categorization process involved:
+1.  Extracting distinct product names from the dataset.
+2.  Identifying category groups used by the business.
+3.  Generating keyword mappings associated with each category.
+4.  implementing a SQL CASE statement to assign categories based on product name keywords.
+
+This logic allows products to be automatically classified into categories during query execution.
+Example Structure of the View
+The view includes the following fields:
+part_no
+product_name
+category
+quantity_sold
+cost_amount
+sales_amount
+profit_amount
+sales_date
+This view acts as the central dataset used for both SQL analysis and the Power BI dashboard, ensuring that all reporting and visualizations are based on the same structured and categorized sales data.
+
+click to view script.
+
+### Monthly Sales Summary Validation
+
+A monthly summary view was created to validate the transformed dataset against the original PDF sales reports. Key metrics such as total quantity sold, revenue, cost, and profit were aggregated by month and compared with the source reports to ensure the numbers matched
+
+click to view script
+
+## Analysis
+
 
 
