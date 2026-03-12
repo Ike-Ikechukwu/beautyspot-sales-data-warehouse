@@ -200,5 +200,26 @@ This approach ensures that higher-performing categories receive a proportionally
 
 click to view script.
 
+## Power BI Dashboard
 
+A Power BI dashboard was built on top of the Gold layer view gold.beautyspot_sales_sls to visualize key business metrics.
+
+**Key Performance Indicators:**
+-  Unique Products
+-  Total Quantity Sold
+-  Total Cost
+-  Total Revenue
+-  Total Profit
+
+**Visualizations**
+-  The dashboard includes:
+-  Monthly Revenue Trend
+-  Category Performance
+-  Profit Contribution (%)
+-  Top Performing Products
+-  Bottom Performing Products
+
+These visuals allow stakeholders to quickly understand overall sales performance and identify high and low performing products.
+
+(Insert dashboard screenshot here)
 
