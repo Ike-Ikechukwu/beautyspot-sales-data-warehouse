@@ -92,7 +92,7 @@ Before loading data from bronze into the Silver layer, several data quality chec
 -  Removing unwanted spaces in string fields
 -  Verifying consistent formatting across the dataset
 
-(click to view the script).
+[click to view the script](tests/silver.quality_checks.sql)
 
 **Data Discrepancy Investigation**
 
