@@ -54,7 +54,7 @@ The database created for the project: beauty_spot_DW
 
 Schemas used: bronze, silver and gold
 
-(click to view script)
+[click to view script](scripts/database.sql)
 
 Each layer serves a different purpose:
 -  Bronze	Stores the raw data
