@@ -10,7 +10,6 @@ if not it goes ahead to create the tables
 
 IF OBJECT_ID ('silver.beautyspot_sales_sls', 'U') IS NOT NULL
 	DROP TABLE silver.beautyspot_sales_sls;
-GO
 CREATE TABLE silver.beautyspot_sales_sls (
 	part_no NVARCHAR (50),
 	product_name NVARCHAR (100),
@@ -21,7 +20,7 @@ CREATE TABLE silver.beautyspot_sales_sls (
 	sales_date DATE,
 	dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
-GO
+
 IF OBJECT_ID ('silver.beautyspot_prd_details_inv', 'U') IS NOT NULL
 	DROP TABLE silver.beautyspot_prd_details_inv;
 CREATE TABLE silver.beautyspot_prd_details_inv (
