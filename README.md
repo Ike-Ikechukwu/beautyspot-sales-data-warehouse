@@ -91,7 +91,7 @@ During this process, it was identified that 15 part numbers from the sales datas
 
 The inventory officer provided complete product names for those records so they could still be categorized correctly
 
-(click to view script)
+[click to view script](tests/sales_product_missing_in_inventory.sql)
 
 **Data Insertion**
 Once the data was cleaned, it was inserted into the Silver tables. Before loading the sales data, it was enriched with product information from the inventory dataset using a LEFT JOIN on part_no.
