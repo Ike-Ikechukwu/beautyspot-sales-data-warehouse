@@ -28,7 +28,7 @@ Five monthly PDF reports containing sales data with columns such as product desc
 2. **Inventory Product Dataset**
 A CSV file containing product reference information (internal, part_no and details). This dataset provided more complete product descriptions than the sales reports, making it easier to identify keywords used to categorize products accurately.
 
-(click to view datasets)
+[click to view datasets](datasets)
 
 ## Data Preparation
 
