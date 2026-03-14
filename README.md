@@ -133,7 +133,7 @@ The process involved:
 3.  SQL CASE statement was then used to assign categories based on these keywords.
 This approach allows products to be automatically categorized during query execution, ensuring consistent classification across the dataset.
 
-(Click to view script)
+[Click to view script]()
 
 ### Monthly Sales Summary Validation
 
