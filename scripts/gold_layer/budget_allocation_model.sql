@@ -1,11 +1,12 @@
 /* 
-===================================================================================
+====================================================================================
 Script purpose:
         The Query creates a view that displays the allocation of the new procurement 
         budget across product categories based on thier revenue contributions.
-===================================================================================
+====================================================================================
 Usage: execute this query:   SELECT * FROM gold.budget_allocation_model
-                             ORDER BY new_allocation
+                             ORDER BY new_allocation;
+====================================================================================
 */
 
 IF OBJECT_ID('gold.budget_allocation_model', 'V') IS NOT NULL
