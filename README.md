@@ -135,15 +135,15 @@ This approach allows products to be automatically categorized during query execu
 
 [Click to view script](scripts/gold_layer/ddl.gold.sql)
 
-### Monthly Sales Summary Validation
+#### Monthly Sales Summary Validation
 
 A monthly summary view was created to validate the transformed dataset against the original PDF sales reports. Key metrics such as total quantity sold, revenue, cost, and profit were aggregated by month and compared with the source reports to ensure the numbers matched
 
 [click to view script](scripts/gold_layer/monthly_sales_validation.sql)
 
-## Analysis
+### Analysis
 
-### Category Performance Analysis
+#### Category Performance Analysis
 Using the "gold.beautyspot_sales_report" view, a category-level analysis view was created . This analysis was performed to evaluate the contribution of each product category. The analysis calculated key metrics such as number of products, total quantity sold, total cost, total revenue, total profit, and revenue contribution percentage.
 To avoid results being skewed by unusually high sales periods, the peak sales month was excluded and the analysis was conducted using the remaining four months of data. This provided a more balanced view of category performance during typical sales periods.
 
@@ -151,7 +151,7 @@ This analysis helps identify which product categories generate the most revenue 
 
 [click to view script](scripts/gold_layer/category_performance_analysis.sql)
 
-### Budget Allocation Model
+#### Budget Allocation Model
 A simple budget allocation model was developed based on category revenue contribution. The 30,000,000 naira procurement budget was distributed across product categories according to thier revenue performance.
 **formula used**:
 Revenue Allocation = New Budget × Revenue Contribution
